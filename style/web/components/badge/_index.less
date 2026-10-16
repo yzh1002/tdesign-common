@@ -69,4 +69,83 @@
   &--round {
     border-radius: @badge-shape-round;
   }
+
+  // ribbon / triangle 角标（web 端新增，移植自 mobile）
+  // 形态：ribbon（默认靠右）/ ribbon-right / ribbon-left / triangle-right / triangle-left
+  &--ribbon,
+  &--ribbon-right,
+  &--ribbon-left,
+  &--triangle-right,
+  &--triangle-left {
+    position: absolute;
+    top: 0;
+    width: @badge-ribbon-size;
+    height: @badge-ribbon-size;
+    border-radius: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    font: @badge-font;
+    color: @badge-text-color;
+    background-color: var(--td-badge-bg-color, @badge-color);
+  }
+
+  &--ribbon,
+  &--ribbon-right {
+    background: linear-gradient(
+      45deg,
+      transparent 50%,
+      var(--td-badge-bg-color, @badge-color) 50%,
+      var(--td-badge-bg-color, @badge-color) 85%,
+      transparent 85%
+    );
+  }
+
+  &--triangle-right {
+    background: linear-gradient(45deg, transparent 50%, var(--td-badge-bg-color, @badge-color) 50%);
+  }
+
+  &--ribbon,
+  &--ribbon-right,
+  &--triangle-right {
+    right: 0;
+
+    .@{prefix}-badge__count {
+      transform: rotate(45deg)
+        translateY(calc(-1 * var(--td-line-height-mark-extraSmall, 16px) / 2 + 0.5px));
+    }
+  }
+
+  &--ribbon-left {
+    background: linear-gradient(
+      -45deg,
+      transparent 50%,
+      var(--td-badge-bg-color, @badge-color) 50%,
+      var(--td-badge-bg-color, @badge-color) 85%,
+      transparent 85%
+    );
+  }
+
+  &--triangle-left {
+    background: linear-gradient(-45deg, transparent 50%, var(--td-badge-bg-color, @badge-color) 50%);
+  }
+
+  &--ribbon-left,
+  &--triangle-left {
+    left: 0;
+
+    .@{prefix}-badge__count {
+      transform: rotate(-45deg)
+        translateY(calc(-1 * var(--td-line-height-mark-extraSmall, 16px) / 2 + 0.5px));
+    }
+  }
+
+  &__count {
+    &:empty {
+      display: none;
+    }
+  }
 }
