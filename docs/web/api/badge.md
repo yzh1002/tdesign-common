@@ -32,7 +32,7 @@ spline: data
 
 ### 不同形状的徽标
 
-提供圆形和方形两种不同形状的徽标展示。
+提供圆形（circle）、方形（round）、角标（ribbon）、三角（triangle）等多种形状的徽标展示。
 
 {{ shape }}
 
